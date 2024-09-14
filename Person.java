@@ -26,7 +26,6 @@ public class Person {
 
 
     public boolean empty(OptionalInt q) {
-        // Действия для ситуации, когда строка не является null и одновременно пуста.
         return String.valueOf(q) != null || String.valueOf(q).isEmpty();
     }
 
