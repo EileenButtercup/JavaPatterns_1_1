@@ -26,11 +26,8 @@ public class Person {
 
 
     public boolean empty(OptionalInt q) {
-        if (String.valueOf(age) != null && String.valueOf(age).isEmpty()) {
-            // Действия для ситуации, когда строка не является null и одновременно пуста.
-            return false;
-        }
-        return true;
+        // Действия для ситуации, когда строка не является null и одновременно пуста.
+        return String.valueOf(q) == null || !String.valueOf(q).isEmpty();
     }
 
     public boolean equals() {
