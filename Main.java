@@ -7,8 +7,11 @@ public class Main {
                 .setAddress("Сидней")
                 .build();
         System.out.println(mom);
-
+        System.out.println("age - " + mom.equalsWithNulls(mom.getAge()));
+        System.out.println("age - " + mom.empty(mom.getAge()));
+        System.out.println("age - " + mom.proverka());
         System.out.println("age - " + mom.hasAge());
+
         System.out.println("address - " + mom.hasAddress());
 
         Person son = mom.newChildBuilder()
