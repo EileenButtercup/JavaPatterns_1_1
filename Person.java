@@ -16,14 +16,41 @@ public class Person {
     }
 
     public boolean hasAge() {
-        return age >= 0;
+        try {
+            return age >= 0;
+        } catch (NullPointerException except) {
+            System.out.println("Введите возраст (age).");
+            throw except;
+        }
     }
 
-    public boolean hasAddress() {
-        if (address == null) {
+
+    public boolean empty(OptionalInt q) {
+        if (String.valueOf(age) != null && String.valueOf(age).isEmpty()) {
+            // Действия для ситуации, когда строка не является null и одновременно пуста.
             return false;
         }
         return true;
+    }
+
+    public boolean equals() {
+
+        return String.valueOf(age) != null;
+    }
+
+    public boolean equalsWithNulls(OptionalInt q) {
+        return q.isPresent();
+    }
+
+    public String proverka() {
+        if (equals()) {
+            return "Возраст введен";
+        }
+        return "возраст не введен";
+    }
+
+    public boolean hasAddress() {
+        return address != null;
     }
 
     public String getName() {
@@ -35,8 +62,21 @@ public class Person {
     }
 
     public OptionalInt getAge() {
-        return OptionalInt.of(age);
+        try {
+            if (equalsWithNulls(OptionalInt.of(age))) {
+                return OptionalInt.of(age);
+            }
+            if (empty(OptionalInt.of(age))) {
+                return OptionalInt.of(age);
+            }
+
+            return OptionalInt.empty();
+        } catch (NullPointerException except) {
+            System.out.println("Введите возраст (age).");
+            throw except;
+        }
     }
+
 
     public String getAddress() {
         return address;
