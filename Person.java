@@ -58,7 +58,6 @@ public class Person {
     }
 
     public OptionalInt getAge() {
-        try {
             if (equalsWithNulls(OptionalInt.of(age))) {
                 return OptionalInt.of(age);
             }
@@ -67,10 +66,6 @@ public class Person {
             }
 
             return OptionalInt.empty();
-        } catch (NullPointerException except) {
-            System.out.println("Введите возраст (age).");
-            throw except;
-        }
     }
 
 
